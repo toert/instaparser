@@ -20,6 +20,7 @@ class InstagramParser():
     def __init__(self):
         #self.chrome = webdriver.Chrome()
         #self.safari = webdriver.Safari()
+        # TODO support new drivers
         self.profile = webdriver.FirefoxProfile()
         self.firefox = webdriver.Firefox(firefox_profile=self.profile)
 
