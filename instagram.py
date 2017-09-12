@@ -18,9 +18,7 @@ class InstagramParser():
     IS_LOGGINED = False
 
     def __init__(self):
-        #self.chrome = webdriver.Chrome()
-        #self.safari = webdriver.Safari()
-        # TODO support new drivers
+        self.chrome = webdriver.Chrome()
         self.profile = webdriver.FirefoxProfile()
         self.firefox = webdriver.Firefox(firefox_profile=self.profile)
 
@@ -92,7 +90,7 @@ class InstagramParser():
 
     def close(self):
         self.firefox.quit()
-        #self.chrome.quit()
+        self.chrome.quit()
         #self.safari.quit()
 
     @staticmethod
@@ -112,9 +110,9 @@ class InstagramParser():
 
 if __name__=='__main__':
     client = InstagramParser()
-    driver = client.firefox
-    client.login(driver, 'toert_', 'psswrd_here')
+    driver = client.chrome
+    #client.login(driver, 'toert_', 'psswrd_here')
     pprint.pprint(client.expore_tag(driver, 'find'))
-    client.like_post(driver, 'https://www.instagram.com/p/BY17uuSHAdC/')
-    client.write_comment(driver, 'https://www.instagram.com/p/BY17uuSHAdC/', 'Amazing video')
+    #client.like_post(driver, 'https://www.instagram.com/p/BY17uuSHAdC/')
+    #client.write_comment(driver, 'https://www.instagram.com/p/BY17uuSHAdC/', 'Amazing video')
     client.close()
